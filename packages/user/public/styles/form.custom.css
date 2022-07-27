@@ -1,0 +1,221 @@
+@font-face {
+  font-family: 'MS PMincho';
+  src: url('/assets/fonts/form/MS-PMincho.woff2') format('woff2'), url('/assets/fonts/form/MS-PMincho.woff') format('woff');
+}
+@font-face {
+  font-family: 'Zen Old Mincho';
+  src: url('/assets/fonts/form/MS-PMincho.woff2') format('woff2'), url('/assets/fonts/form/MS-PMincho.woff') format('woff');
+}
+@font-face {
+  font-family: 'Arial Narrow';
+  src: url('/assets/fonts/form/ArialNarrow.woff2') format('woff2'), url('/assets/fonts/form/ArialNarrow.woff') format('woff');
+}
+@font-face {
+  font-family: 'Calibri';
+  src: url('/assets/fonts/form/Calibri.woff2') format('woff2'), url('/assets/fonts/form/Calibri.woff') format('woff');
+}
+@font-face {
+  font-family: 'Arial';
+  src: url('/assets/fonts/form/Arial.woff2') format('woff2'), url('/assets/fonts/form/Arial.woff') format('woff');
+}
+@font-face {
+  font-family: 'Century';
+  src: url('/assets/fonts/form/Century.woff2') format('woff2'), url('/assets/fonts/form/Century.woff') format('woff');
+}
+@font-face {
+  font-family: 'Meiryo';
+  src: url('/assets/fonts/form/Meiryo.woff2') format('woff2'), url('/assets/fonts/form/Meiryo.woff') format('woff');
+}
+@font-face {
+  font-family: 'Times new roman';
+  src: url('/assets/fonts/form/TimesNewRoman.woff2') format('woff2'), url('/assets/fonts/form/TimesNewRoman.woff') format('woff');
+}
+@font-face {
+  font-family: 'Khmer';
+  src: url('/assets/fonts/form/Khmer.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'Zawgyi-One';
+  src: url('/assets/fonts/form/ZAWGYIONE.woff') format('woff');
+}
+@font-face {
+  font-family: 'Myanmar Text';
+  font-weight: normal;
+  src: url('/assets/fonts/form/mmrtext.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'Myanmar Text';
+  font-weight: bold;
+  src: url('/assets/fonts/form/mmrtextb.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'Pyidaungsu';
+  font-weight: normal;
+  src: url('/assets/fonts/form/Pyidaungsu_Regular.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'Pyidaungsu';
+  font-weight: bold;
+  src: url('/assets/fonts/form/Pyidaungsu_Bold.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'Angsana New';
+  font-weight: normal;
+  font-style: normal;
+  src: url('/assets/fonts/form/AngsanaNew.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'Arial';
+  src: url('/assets/fonts/form/Arial.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'Arial Narrow';
+  src: url('/assets/fonts/form/ArialNarrow.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'Calibri';
+  src: url('/assets/fonts/form/Calibri.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'Century';
+  src: url('/assets/fonts/form/Century.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'Khmer';
+  src: url('/assets/fonts/form/Khmer.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'Mangal';
+  font-weight: normal;
+  font-style: normal;
+  src: url('/assets/fonts/form/Mangal.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'Meiryo';
+  src: url('/assets/fonts/form/Meiryo.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'Myanmar Text';
+  font-weight: normal;
+  font-style: normal;
+  src: url('/assets/fonts/form/mmrtext.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'Myanmar Text';
+  font-weight: bold;
+  src: url('/assets/fonts/form/mmrtextb.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'MS Gothic';
+  src: url('/assets/fonts/form/MSGothic.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'MS PGothic';
+  src: url('/assets/fonts/form/MSPGothic.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'MS PMincho';
+  src: url('/assets/fonts/form/MSPMincho.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'Zen Old Mincho';
+  font-weight: normal;
+  font-style: normal;
+  src: url('/assets/fonts/form/ZenOldMincho_Regular.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'Zen Old Mincho';
+  font-weight: bold;
+  font-style: normal;
+  src: url('/assets/fonts/form/ZenOldMincho_Bold.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'Nirmala UI';
+  font-weight: normal;
+  font-style: normal;
+  src: url('/assets/fonts/form/NirmalaUI.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'Pyidaungsu';
+  font-weight: normal;
+  font-style: normal;
+  src: url('/assets/fonts/form/Pyidaungsu_Regular.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'Pyidaungsu';
+  font-weight: bold;
+  src: url('/assets/fonts/form/Pyidaungsu_Bold.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'Times New Roman';
+  font-weight: normal;
+  font-style: normal;
+  src: url('/assets/fonts/form/TimesNewRomanPSMT.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'Times New Roman';
+  font-weight: bold;
+  src: url('/assets/fonts/form/TimesNewRomanPS-BoldMT.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'Times New Roman';
+  font-style: italic;
+  src: url('/assets/fonts/form/TimesNewRomanPS-ItalicMT.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'Zawgyi-One';
+  src: url('/assets/fonts/form/ZAWGYIONE.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'SimHei';
+  font-weight: normal;
+  font-style: normal;
+  src: url('/assets/fonts/form/SimHei.ttf') format('truetype');
+}
+
+.ritz.grid-container {
+  background: #fff;
+  display: flex;
+  align-items: center;
+  /* justify-content: center; */
+}
+.ritz.grid-container > table > tbody > tr > td input,
+.ritz.grid-container > table > tbody > tr > td textarea {
+  width: 100%;
+  background-color: #e6ffe6;
+  border: 1px solid #009900;
+  padding: 5px 2px;
+  border-radius: 0px;
+  margin-top: 3px;
+  margin-bottom: 3px;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+.ritz.grid-container > table > tbody > tr > td textarea {
+  resize: vertical;
+}
+
+.grid-container,
+input,
+textarea {
+  color: rgb(0, 0, 0) !important;
+}
+
+.ghtml input[type='text'] {
+  text-align: inherit;
+}
+
+.auto_fill_name_div {
+  font-family: inherit;
+  width: auto;
+}
+
+.grid-container * {
+  font-size: unset;
+  font-family: unset;
+}
+
+.waffle {
+  margin: 0 auto;
+}

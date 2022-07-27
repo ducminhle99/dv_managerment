@@ -1,0 +1,189 @@
+stages:
+  - package
+  - deploy
+
+# DEVELOP =======================================================================
+# DEV: company
+docker-package-dev-company:
+  stage: package
+  image:
+    name: amazon/aws-cli
+    entrypoint: ['']
+  tags:
+    - dev-company
+  before_script:
+    - amazon-linux-extras install docker
+    - mkdir configs
+    - cat ${DEV_CONFIGS_APP_ENV} >> configs/app.ts
+    - cat ${DEV_CICD_ENV} >> cicd.env
+    - export $(grep -v '^#' cicd.env | xargs -0)
+    - docker login -u AWS -p $(aws ecr get-login-password) $REGISTRY
+  script:
+    - docker pull $REGISTRY:latest-company-dev || true
+    - docker build -t $REGISTRY:company-$CI_COMMIT_SHORT_SHA -f Dockerfile_company . --cache-from $REGISTRY:latest-company-dev
+    - docker tag $REGISTRY:company-$CI_COMMIT_SHORT_SHA $REGISTRY:latest-company-dev
+    - docker push $REGISTRY:latest-company-dev
+  only:
+    - release-dev
+
+deploy-dev-company:
+  stage: deploy
+  image: docker:stable
+  tags:
+    - dev-company
+  before_script:
+    - apk update && apk add openssh-client bash
+  script:
+    - eval $(ssh-agent -s)
+    - bash -c 'ssh-add <(echo "$SSH_PRIVATE_KEY")'
+    - mkdir -p ~/.ssh
+    - ssh-keyscan -H $DEV_SERVER_IP >> ~/.ssh/known_hosts
+    - chmod 644 ~/.ssh/known_hosts
+
+    - >
+      ssh $SSH_USER@$DEV_SERVER_IP
+      "cd $PATH_TO_PROJECT;
+      sh build-company.sh;"
+  only:
+    - release-dev
+
+# DEV: admin
+docker-package-dev-admin:
+  stage: package
+  image:
+    name: amazon/aws-cli
+    entrypoint: ['']
+  tags:
+    - dev-admin
+  before_script:
+    - amazon-linux-extras install docker
+    - mkdir configs
+    - cat ${DEV_CONFIGS_APP_ENV} >> configs/app.ts
+    - cat ${DEV_CICD_ENV} >> cicd.env
+    - export $(grep -v '^#' cicd.env | xargs -0)
+    - docker login -u AWS -p $(aws ecr get-login-password) $REGISTRY
+  script:
+    - docker pull $REGISTRY:latest-admin-dev || true
+    - docker build -t $REGISTRY:admin-$CI_COMMIT_SHORT_SHA -f Dockerfile_admin . --cache-from $REGISTRY:latest-admin-dev
+    - docker tag $REGISTRY:admin-$CI_COMMIT_SHORT_SHA $REGISTRY:latest-admin-dev
+    - docker push $REGISTRY:latest-admin-dev
+
+    - docker pull $REGISTRY:latest-admin-dev || true
+    - docker build -t $REGISTRY:admin-$CI_COMMIT_SHORT_SHA -f Dockerfile_admin . --cache-from $REGISTRY:latest-admin-dev
+    - docker tag $REGISTRY:admin-$CI_COMMIT_SHORT_SHA $REGISTRY:latest-admin-dev
+    - docker push $REGISTRY:latest-admin-dev
+  only:
+    - release-dev
+
+deploy-dev-admin:
+  stage: deploy
+  image: docker:stable
+  tags:
+    - dev-admin
+  before_script:
+    - apk update && apk add openssh-client bash
+  script:
+    - eval $(ssh-agent -s)
+    - bash -c 'ssh-add <(echo "$SSH_PRIVATE_KEY")'
+    - mkdir -p ~/.ssh
+    - ssh-keyscan -H $DEV_SERVER_IP >> ~/.ssh/known_hosts
+    - chmod 644 ~/.ssh/known_hosts
+
+    - >
+      ssh $SSH_USER@$DEV_SERVER_IP
+      "cd $PATH_TO_PROJECT;
+      sh build-admin.sh;"
+  only:
+    - release-dev
+
+# STAGING =======================================================================
+docker-package-stag-company:
+  stage: package
+  image:
+    name: amazon/aws-cli
+    entrypoint: ['']
+  tags:
+    - stg
+  before_script:
+    - amazon-linux-extras install docker
+    - mkdir configs
+    - cat ${STAG_CONFIGS_APP_ENV} >> configs/app.ts
+    - cat ${STG_CICD_ENV} >> cicd.env
+    - export $(grep -v '^#' cicd.env | xargs -0)
+    - docker login -u AWS -p $(aws ecr get-login-password) $REGISTRY
+  script:
+    - docker pull $REGISTRY:latest-company-stag || true
+    - docker build -t $REGISTRY:company-$CI_COMMIT_SHORT_SHA -f Dockerfile_company . --cache-from $REGISTRY:latest-company-stag
+    - docker tag $REGISTRY:company-$CI_COMMIT_SHORT_SHA $REGISTRY:latest-company-stag
+    - docker push $REGISTRY:latest-company-stag
+  only:
+    - release-stg
+
+docker-package-stag-admin:
+  stage: package
+  image:
+    name: amazon/aws-cli
+    entrypoint: ['']
+  tags:
+    - stg
+  before_script:
+    - amazon-linux-extras install docker
+    - mkdir configs
+    - cat ${STAG_CONFIGS_APP_ENV} >> configs/app.ts
+    - cat ${STG_CICD_ENV} >> cicd.env
+    - export $(grep -v '^#' cicd.env | xargs -0)
+    - docker login -u AWS -p $(aws ecr get-login-password) $REGISTRY
+  script:
+    - docker pull $REGISTRY:latest-admin-stag || true
+    - docker build -t $REGISTRY:admin-$CI_COMMIT_SHORT_SHA -f Dockerfile_admin . --cache-from $REGISTRY:latest-admin-stag
+    - docker tag $REGISTRY:admin-$CI_COMMIT_SHORT_SHA $REGISTRY:latest-admin-stag
+    - docker push $REGISTRY:latest-admin-stag
+  only:
+    - release-stg
+
+# PRODUCTION =======================================================================
+docker-package-pro-company:
+  stage: package
+  image:
+    name: amazon/aws-cli
+    entrypoint: ['']
+  tags:
+    - pro
+  before_script:
+    - amazon-linux-extras install docker
+    - mkdir configs
+    - cat ${PRO_CONFIGS_APP_ENV} >> configs/app.ts
+    - cat ${PRO_CICD_ENV} >> cicd.env
+    - export $(grep -v '^#' cicd.env | xargs -0)
+    - docker login -u AWS -p $(aws ecr get-login-password) $REGISTRY
+  script:
+    - docker pull $REGISTRY:latest-company-pro || true
+    - docker build -t $REGISTRY:company-$CI_COMMIT_SHORT_SHA -f Dockerfile_company . --cache-from $REGISTRY:latest-company-pro
+    - docker tag $REGISTRY:company-$CI_COMMIT_SHORT_SHA $REGISTRY:latest-company-pro
+    - docker push $REGISTRY:latest-company-pro
+  only:
+    - master
+  when: manual
+
+docker-package-pro-admin:
+  stage: package
+  image:
+    name: amazon/aws-cli
+    entrypoint: ['']
+  tags:
+    - pro
+  before_script:
+    - amazon-linux-extras install docker
+    - mkdir configs
+    - cat ${PRO_CONFIGS_APP_ENV} >> configs/app.ts
+    - cat ${PRO_CICD_ENV} >> cicd.env
+    - export $(grep -v '^#' cicd.env | xargs -0)
+    - docker login -u AWS -p $(aws ecr get-login-password) $REGISTRY
+  script:
+    - docker pull $REGISTRY:latest-admin-pro || true
+    - docker build -t $REGISTRY:admin-$CI_COMMIT_SHORT_SHA -f Dockerfile_admin . --cache-from $REGISTRY:latest-admin-pro
+    - docker tag $REGISTRY:admin-$CI_COMMIT_SHORT_SHA $REGISTRY:latest-admin-pro
+    - docker push $REGISTRY:latest-admin-pro
+  only:
+    - master
+  when: manual

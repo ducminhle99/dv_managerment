@@ -1,0 +1,13 @@
+{
+  "name": "user",
+  "private": true,
+  "scripts": {
+    "dev": "next dev -p 3001",
+    "dev:server": "nodemon server.js",
+    "build": "next build",
+    "start": "next start",
+    "export": "next export",
+    "lint": "next lint",
+    "prepare": "husky install"
+  }
+}

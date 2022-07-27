@@ -1,0 +1,14 @@
+version: '3.3'
+
+networks:
+  sakurajob:
+
+services:
+  web:
+    image: sakura-fe:latest
+    restart: always
+    container_name: sakurajob-fe
+    ports:
+      - 8030:3000
+    networks:
+      - sakurajob
