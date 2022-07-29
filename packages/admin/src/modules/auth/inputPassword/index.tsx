@@ -1,4 +1,4 @@
-import InputPasswordComponent from './components/index';
+import InputPasswordComponent from 'common/components/newPassword';
 import useLogic from './useLogic';
 
 function InputPassword() {

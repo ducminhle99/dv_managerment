@@ -1,4 +1,4 @@
-import ResetPasswordComponent from './components';
+import ResetPasswordComponent from 'common/components/resetPassword';
 import useLogic from './useLogic';
 
 function ResetPassword() {

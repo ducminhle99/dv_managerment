@@ -2,7 +2,7 @@ import { resetPassword } from 'common/services/api';
 import { useState } from 'react';
 import { useApiCaller } from 'common/hooks';
 import { ResetPasswordReqDto } from 'common/dto/request';
-import { FormValue } from './components';
+import { FormValue } from 'common/components/resetPassword';
 
 export default function useLogic() {
   const [messageError, setMessageError] = useState('');
@@ -10,7 +10,7 @@ export default function useLogic() {
 
   const { request, loading } = useApiCaller({
     apiCaller: resetPassword,
-    messageSuccess: 'パスワードリセット用のメールを送信いたしました。',
+    messageSuccess: 'We have sent you an email to reset your password.',
   });
 
   const handleSubmit = async (data: FormValue) => {
@@ -25,7 +25,7 @@ export default function useLogic() {
       return;
     }
 
-    setMessageError('入力いただいたメールアドレスの会員情報が見つかりませんでした。');
+    setMessageError('The member information for the email address you entered could not be found.');
   };
 
   return { handleSubmit, messageError, setMessageError, loading, btnStatus };
