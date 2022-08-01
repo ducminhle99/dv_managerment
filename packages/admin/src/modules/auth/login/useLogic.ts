@@ -5,8 +5,9 @@ import { setAuthenticated } from 'store/actions';
 import { useApiCaller } from 'common/hooks';
 import { LoginReqDto } from 'common/dto/request';
 import { LoginResDto } from 'common/dto/response';
-import { FormValue } from './components/login';
+
 import { errorCode } from 'common/constants/apiErrorCode';
+import { FormValue } from 'common/components/login';
 
 export default function useLogic() {
   const [messageError, setMessageError] = useState('');
@@ -25,7 +26,6 @@ export default function useLogic() {
       dispatch(
         setAuthenticated({
           token: result.data.token,
-          remember: data.rememberMe,
           role: result.data.role,
           key: result.data.key,
           fullName: result.data.fullName,

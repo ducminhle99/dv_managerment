@@ -1,4 +1,4 @@
-import LoginComponent from './components/login';
+import LoginComponent from 'common/components/login';
 import useLogic from './useLogic';
 
 function Login() {

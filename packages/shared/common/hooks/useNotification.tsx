@@ -33,7 +33,7 @@ export function useNotification() {
         notification.error({
           ...notificationBody,
           icon: (
-            <div className="rounded-full  w-10 h-10 text-white bg-primary flex items-center justify-center mr-4">
+            <div className="rounded-full w-6 h-6 text-white bg-primary flex items-center justify-center">
               <ExclamationOutlined className="h-6" />
             </div>
           ),
@@ -53,7 +53,7 @@ export function useNotification() {
         notification.success({
           ...notificationBody,
           icon: (
-            <div className="rounded-full  w-10 h-10 text-white bg-primary flex items-center justify-center mr-4">
+            <div className="rounded-full w-10 h-10 text-white bg-primary flex items-center justify-center mr-4">
               <SuccessTick />
             </div>
           ),

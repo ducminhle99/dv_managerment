@@ -1,7 +1,6 @@
 import Router from 'next/router';
 import multiLanguage, { LanguageKey } from 'common/constants/multiLanguage';
 import { isObject } from 'lodash';
-import { appConfig } from '@configs/app';
 
 export const replaceRouter = (path: string) => {
   if (typeof window === 'undefined' || !path) {
@@ -43,20 +42,6 @@ export function checkMax(maxVal: number) {
 
     return Number(value) <= maxVal;
   };
-}
-
-export function validateInternalEmail(value?: string) {
-  if (!value) {
-    return false;
-  }
-
-  const emailSplits = value.split('@');
-
-  if (emailSplits.length != 2) {
-    return false;
-  }
-
-  return appConfig.internalEmailSuffix.includes(emailSplits[1]);
 }
 
 export function isFullSize(value?: string) {
