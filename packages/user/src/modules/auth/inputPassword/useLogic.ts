@@ -1,7 +1,7 @@
 import { inputPassword, checkToken } from 'common/services/api';
 import { useApiCaller } from 'common/hooks';
 import { InputPasswordReqDto, CheckTokenReqDto } from 'common/dto/request';
-import { FormValue } from './components/index';
+import { FormValue } from 'common/components/newPassword';
 import { useRouter } from 'next/router';
 import { useState, useEffect } from 'react';
 import { errorCode } from 'common/constants/apiErrorCode';
@@ -19,7 +19,7 @@ export default function useLogic() {
 
   const { request, loading } = useApiCaller({
     apiCaller: inputPassword,
-    messageSuccess: 'パスワードが変更完了いたしました。',
+    messageSuccess: 'The password has been changed.',
   });
 
   const checkRedirect = async () => {

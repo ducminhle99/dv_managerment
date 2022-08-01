@@ -1,8 +1,8 @@
 import * as Yup from 'yup';
 
-const PASSWORD_REQUIRE = 'パスワードを入力してください';
-const PASSWORD_INVALID = 'パスワードは大文字小文字英数字含む6文字以上30文字以下です。';
-const PASSWORD_NOT_MATCH = 'パスワードが一致しません';
+const PASSWORD_REQUIRE = 'Please enter your password';
+const PASSWORD_INVALID = 'The password must be between 6 and 30 characters, including uppercase and lowercase alphanumericals.';
+const PASSWORD_NOT_MATCH = 'Passwords do not match';
 
 export const validationSchema = Yup.object().shape({
   password: Yup.string()
