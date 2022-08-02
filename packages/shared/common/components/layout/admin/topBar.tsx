@@ -1,7 +1,6 @@
 import { Button } from 'antd';
 import { useSelector } from 'common/hooks';
 import { IAuthState } from 'store/reducers/authentication';
-import { roleLabelFull } from 'common/constants/role';
 import { LogoutIcon } from 'common/components/icons';
 import { UserCircle } from 'common/components/icons';
 import { useLogout } from 'common/hooks/useLogout';
@@ -29,7 +28,7 @@ function TopBar() {
           </div>
           <p className="ml-2 font-bold text-sm">{adminProfile?.fullName}</p>
           <div className="border-0 border-l border-solid border-gray pl-4 pr-2 ml-4 text-sm">
-            <p className="font-bold text-sm">{roleLabelFull[authData.role]}</p>
+            {/* <p className="font-bold text-sm">{roleLabelFull[authData.role]}</p> */}
           </div>
         </div>
 

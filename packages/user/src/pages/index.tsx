@@ -5,6 +5,6 @@ const Index = () => {
 };
 
 const IndexAuthenticated = withAuthentication(Index);
-IndexAuthenticated.layout = 'admin';
+IndexAuthenticated.layout = 'user';
 
 export default IndexAuthenticated;

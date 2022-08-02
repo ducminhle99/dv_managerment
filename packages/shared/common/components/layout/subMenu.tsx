@@ -1,8 +1,8 @@
+import clsx from 'clsx';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import clsx from 'clsx';
-import ISideBar from 'common/types/ISideBar';
 import { useMemo, useState } from 'react';
+import IMenu from '../../types/IMenu';
 import ChildMenu, { IChildMenu } from './childMenu';
 
 const LinkUrl = ({ isAuth, href, children }: { isAuth: boolean; href: string; children: any }) => {
@@ -13,7 +13,7 @@ const LinkUrl = ({ isAuth, href, children }: { isAuth: boolean; href: string; ch
   return children;
 };
 
-function SubMenu({ item, isAuth }: { item: ISideBar; lastItem: boolean; isAuth: boolean }) {
+function SubMenu({ item, isAuth }: { item: IMenu; lastItem: boolean; isAuth: boolean }) {
   const { pathname } = useRouter();
   const [isShowChild, setIsShowChild] = useState<boolean>(true);
 
@@ -38,18 +38,22 @@ function SubMenu({ item, isAuth }: { item: ISideBar; lastItem: boolean; isAuth: 
   }, [pathname, item]);
 
   return (
-    <div className="flex flex-col py-4 group border-0 border-dotted border-primary-light-300 border-b last:border-b-0">
+    <div className="flex flex-col py-4 group">
       <LinkUrl isAuth={isAuth} href={item.path}>
         <a
           href={item.path}
           className={clsx({
-            'pointer-events-none cursor-default': item.disable,
+            'relative pointer-events-none cursor-default': item.disable,
           })}
           onClick={(e) => {
             if (item.path !== '#') {
               return;
             }
             e.preventDefault();
+            if (item.icon) {
+              e.stopPropagation();
+              setIsShowChild((prevState) => !prevState);
+            }
           }}
         >
           <div className="overflow-hidden flex flex-col items-start flex-nowrap">
@@ -59,30 +63,34 @@ function SubMenu({ item, isAuth }: { item: ISideBar; lastItem: boolean; isAuth: 
                 if (item.path !== '#') {
                   return;
                 }
-                setIsShowChild((prevState) => !prevState);
               }}
             >
-              <div
-                className={clsx('flex  justify-center items-center p-1 rounded-md fill-[#ccc]', {
-                  'bg-primary-light-200 fill-white': isRouterMatching,
-                  'group-hover:opacity-70': !isRouterMatching,
-                })}
-              >
-                {item.icon}
-              </div>
               <p
-                className={clsx('text-lg ml-5 text-[#333333] font-bold whitespace-nowrap ', {
+                className={clsx(' ml-10 text-[18px] text-[#170F49] whitespace-nowrap ', {
                   'text-primary-strong-100': isRouterMatching,
                   'group-hover:opacity-70': !isRouterMatching,
                 })}
               >
                 {item.title}
               </p>
+              <div
+                className={clsx('   flex  justify-center items-center p-1 rounded-md fill-[#ccc]', {
+                  'bg-primary-light-200 fill-white': isRouterMatching,
+                  'group-hover:opacity-70': !isRouterMatching,
+                })}
+              >
+                {item.icon}
+              </div>
             </div>
           </div>
         </a>
       </LinkUrl>
-      <div className={clsx('transition-all duration-500 ease-in-out overflow-hidden', { 'max-h-0': !isShowChild, 'max-h-96': isShowChild })}>
+      <div
+        className={clsx('transition-all top-[50px] bg-white shadow absolute duration-500 ease-in-out  rounded-[6px] ', {
+          'opacity-1': !isShowChild,
+          'opacity-0': isShowChild,
+        })}
+      >
         {item.childs?.map((child: IChildMenu, index: number) => (
           <ChildMenu key={index} item={child} />
         ))}

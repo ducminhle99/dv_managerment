@@ -5,3 +5,8 @@
 .simplebar-content {
   height: 100%;
 }
+.ant-menu-submenu-horizontal .ant-menu-submenu-arrow {
+  display: block;
+  right: -2rem;
+  transform: rotate(90deg);
+}
