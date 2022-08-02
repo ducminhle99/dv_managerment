@@ -1,10 +1,7 @@
 import { withAuthentication } from 'common/hocs';
+import Dashboard from '../modules/dashboard/index';
 
-const Index = () => {
-  return <h1>OK</h1>;
-};
-
-const IndexAuthenticated = withAuthentication(Index);
+const IndexAuthenticated = withAuthentication(Dashboard);
 IndexAuthenticated.layout = 'admin';
 
 export default IndexAuthenticated;
