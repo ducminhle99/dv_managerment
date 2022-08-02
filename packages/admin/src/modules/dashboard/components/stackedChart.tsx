@@ -1,6 +1,7 @@
 import { Column } from '@ant-design/plots';
+import clsx from 'clsx';
 
-const StackedChart = () => {
+const StackedChart = ({ className }: { className?: string }) => {
   const data = [
     {
       year: '1991',
@@ -117,7 +118,7 @@ const StackedChart = () => {
     },
   };
 
-  return <Column {...config} />;
+  return <Column {...config} className={clsx('w-full', className)} />;
 };
 
 export default StackedChart;

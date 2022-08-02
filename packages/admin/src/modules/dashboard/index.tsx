@@ -7,17 +7,15 @@ import PieChart from './components/pieChart';
 
 export default function Dashboard() {
   return (
-    <Container title="Dashboard">
-      <div className="max-w-full flex flex-wrap justify-center px-[250px]">
+    <Container title="Dashboard" className="px-[160px]">
+      <div className="max-w-full flex flex-wrap justify-center ">
         <Card title="borrow" icon={<BorrowIcon />} path="/device" total={1500} />
         <Card title="user" icon={<UserIcon />} path="/device" total={1500} />
         <Card title="device" icon={<DeviceIcon />} path="/device" total={1500} />
         <Card title="report" icon={<ReportIcon />} path="/device" total={1500} />
       </div>
-      <div className="max-w-full flex flex-wrap justify-center px-[250px]">
-        <StackedChart />
-        <PieChart />
-      </div>
+      <StackedChart className="mt-[100px]" />
+      <PieChart className="mt-[100px]" />
     </Container>
   );
 }

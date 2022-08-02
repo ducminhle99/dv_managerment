@@ -1,7 +1,8 @@
 import React from 'react';
 import { Pie } from '@ant-design/plots';
+import clsx from 'clsx';
 
-const PieChart = () => {
+const PieChart = ({ className }: { className?: string }) => {
   const data = [
     {
       type: '分类一',
@@ -60,11 +61,11 @@ const PieChart = () => {
           overflow: 'hidden',
           textOverflow: 'ellipsis',
         },
-        content: 'AntV\nG2Plot',
+        content: 'devices',
       },
     },
   };
-  return <Pie {...config} />;
+  return <Pie {...config} className={clsx('w-full', className)} />;
 };
 
 export default PieChart;
