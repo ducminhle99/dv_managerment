@@ -22,11 +22,11 @@ interface Data {
 
 const Report = (data: Data) => {
   return (
-    <Container rootClassName="pt-[50px]" title="REPORT DETAIL" className="w-full">
+    <Container rootClassName="pt-[50px]" title="REPORT DETAIL">
       <div className="w-[744px] bg-white rounded-md px-16 py-[30px] border border-solid border-[#dddddd] mx-auto">
         <div className="flex justify-between items-center">
           <p className="font-normal text-[16px]">Report ID :{data.reportId}</p>
-          {data.status == 'ACCEPTED' ? (
+          {data.status == ReportStatus.ACCEPTED ? (
             <span className="font-normal text-[16px] text-[#2F9A46]">{data.status}</span>
           ) : (
             <span className="font-normal text-[16px] text-[#FF8E25]">{data.status}</span>
@@ -57,9 +57,9 @@ const Report = (data: Data) => {
           <p className="mt-[10px] font-medium text-[16px]">Description</p>
           <p className="mt-[10px] font-medium text-[16px] text-[#979797]">{data.description}</p>
         </div>
-        <MessageErrors message={data.message} className="mb-[20px] mt-[20px]" />
-        <div className="mt-[60px] flex justify-end">
-          {data.status == 'WAITING' && (
+        <MessageErrors message={data.message} className="mt-[20px]" />
+        <div className="mt-[20px] flex justify-end">
+          {data.status == ReportStatus.WAITING && (
             <ButtonAccept loading={data.loading} title="Accept" action={data.onAccept} className="mr-[22px]  w-[100px] h-[40px]" />
           )}
           <ButtonBack title="Back" className="w-[100px] h-[40px]" />

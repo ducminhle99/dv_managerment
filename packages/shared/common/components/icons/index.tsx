@@ -42,7 +42,10 @@ import { AlertIcon } from './alertIcon';
 import { InterviewIcon } from './interviewIcon';
 import { AppFormIcon } from './appFormIcon';
 import { LoadingIcon } from './loadingIcon';
-
+import { DeviceIcon } from './deviceIcon';
+import { BorrowIcon } from './borrowIcon';
+import { UserIcon } from './userIcon';
+import { ReportIcon } from './reportIcon';
 export {
   Home,
   Account,
@@ -72,4 +75,8 @@ export {
   InterviewIcon,
   AppFormIcon,
   LoadingIcon,
+  DeviceIcon,
+  UserIcon,
+  BorrowIcon,
+  ReportIcon,
 };

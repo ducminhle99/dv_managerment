@@ -34,7 +34,10 @@ export default function Login({ submit, loading, messageError, setMessageError }
   }, [form.values]);
 
   return (
-    <Container className="min-h-full min-w-full ml-0 flex items-center justify-center bg-[url('/assets/images/bg_login.jpg')] bg-cover">
+    <Container
+      rootClassName="h-[100vh]"
+      className="min-h-full min-w-full ml-0 flex items-center justify-center bg-[url('/assets/images/bg_login.jpg')] bg-cover"
+    >
       <div className="flex flex-col items-center rounded-md bg-white p-[50px]">
         <img src="/assets/images/hybrid.png" className=" h-[52px] w-auto" alt="logo" />
         <Form onFinish={form.handleSubmit} className="w-[28.25rem] flex flex-col items-center" layout="vertical">
