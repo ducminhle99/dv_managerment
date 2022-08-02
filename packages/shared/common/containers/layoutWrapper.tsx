@@ -1,35 +1,19 @@
 import Layout from 'common/components/layout/admin';
-import LayoutCompany from 'common/components/layout/company';
+import LayoutUser from 'common/components/layout/user';
+import LayoutPublic from 'common/components/layout/public';
 import React from 'react';
-import PageTitle from '../components/pageTitle';
-import { listPageAdminTitleObject, listPageCompanyTitleObject } from '../constants/pageTile';
 
 const LayoutWrapper = ({ children }: { children: any }) => {
   if (children.type.layout === 'admin') {
-    return (
-      <Layout>
-        <PageTitle listTitleObject={listPageAdminTitleObject} />
-        {children}
-      </Layout>
-    );
+    return <Layout>{children}</Layout>;
   }
 
   if (children.type.layout === 'public') {
-    return (
-      <Layout isAuth={false}>
-        <PageTitle listTitleObject={listPageAdminTitleObject} />
-        {children}
-      </Layout>
-    );
+    return <LayoutPublic>{children}</LayoutPublic>;
   }
 
-  if (children.type.layout === 'company') {
-    return (
-      <LayoutCompany isAuth={true}>
-        <PageTitle listTitleObject={listPageCompanyTitleObject} />
-        {children}
-      </LayoutCompany>
-    );
+  if (children.type.layout === 'user') {
+    return <LayoutUser>{children}</LayoutUser>;
   }
 
   return <>{children}</>;

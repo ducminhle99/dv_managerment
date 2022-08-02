@@ -19,15 +19,14 @@ export default function ChildMenu({ item }: { item: IChildMenu; lastItem?: boole
   }, [pathname, item]);
 
   return (
-    <div className="mb-1 mt-4 ml-12">
+    <div className="mb-1 mt-4 mx-10">
       <Link href={item.path}>
         <a className="">
           <p
-            className={clsx('text-[#333333] font-bold whitespace-nowrap hover:opacity-70 underline-offset-4', {
+            className={clsx('text-[#333333]  whitespace-nowrap hover:opacity-70 underline-offset-4', {
               'text-primary-strong-100 ': isRouterMatching,
             })}
           >
-            ・
             <span
               className={clsx('hover:underline', {
                 ' underline': isRouterMatching,

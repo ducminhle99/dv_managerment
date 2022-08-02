@@ -1,10 +1,7 @@
-import React from 'react';
-import Menu from './menu';
 export default function Layout({ children }: { children: React.ReactNode }) {
   return (
-    <>
-      <Menu />
+    <div>
       <main>{children}</main>
-    </>
+    </div>
   );
 }
