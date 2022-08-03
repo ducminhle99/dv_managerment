@@ -14,12 +14,14 @@ export const AccountMenus: IMenu[] = [
   },
   {
     title: 'Change Password',
-    path: '/changePass',
+    path: '',
+    action: 'changePassword',
     icon: <KeyOutlined />,
   },
   {
     title: 'Sign out',
-    path: '/signout',
+    action: 'logout',
+    path: '',
     icon: <ImportOutlined />,
   },
 ];

@@ -8,7 +8,7 @@ function* handleLoadAuthentication() {
   let authToken = window.localStorage.getItem(appConfig.authSecretKey);
 
   if (!authToken) {
-    authToken = window.sessionStorage.getItem(appConfig.authSecretKey);
+    authToken = null;
   }
 
   let payloadData = { ...initialState };
@@ -25,14 +25,7 @@ function* handleLoadAuthentication() {
 
 function* trackSetAuthentication(action: Action<IAuthRememberState>) {
   const payloadString = JSON.stringify(action.payload);
-
-  if (typeof action.payload?.remember === 'boolean') {
-    if (action.payload.remember) {
-      window.localStorage.setItem(appConfig.authSecretKey, payloadString);
-    } else {
-      window.sessionStorage.setItem(appConfig.authSecretKey, payloadString);
-    }
-  }
+  window.localStorage.setItem(appConfig.authSecretKey, payloadString);
 
   yield put(setAuthLoaded(true));
 }
