@@ -13,3 +13,4 @@ export * from './interview';
 export * from './payment';
 export * from './invoice';
 export * from './inquiry';
+export * from './brand';

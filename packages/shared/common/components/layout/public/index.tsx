@@ -1,7 +1,3 @@
 export default function Layout({ children }: { children: React.ReactNode }) {
-  return (
-    <div>
-      <main>{children}</main>
-    </div>
-  );
+  return <main className="h-full w-full overflow-hidden">{children}</main>;
 }

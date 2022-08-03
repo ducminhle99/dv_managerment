@@ -1,0 +1,25 @@
+.ant-form-item-explain-error {
+  margin-bottom: 10px;
+  margin-top: 5px;
+}
+.simplebar-content {
+  height: 100%;
+}
+.ant-menu-submenu-horizontal .ant-menu-submenu-arrow {
+  display: block;
+  right: -2rem;
+  transform: rotate(90deg);
+}
+.create-modal-form .ant-row .ant-col {
+  min-height: unset;
+  width: 100%;
+}
+
+.create-modal-form .ant-row .ant-col {
+  min-height: unset;
+  width: 100%;
+}
+
+.create-modal-form .ant-row .ant-col label {
+  float: left;
+}

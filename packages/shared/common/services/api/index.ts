@@ -14,3 +14,4 @@ export * from './admin/payment';
 export * from './admin/invoice';
 export * from './company/inquiry';
 export * from './admin/report';
+export * from './admin/brand';

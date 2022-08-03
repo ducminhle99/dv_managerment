@@ -18,6 +18,5 @@ export const ButtonDelete = ({ className, loading, handleDelete }: Props) => {
     >
       <span className="text-sm">アカウント削除</span>
     </Button>
-          
   );
-}
+};

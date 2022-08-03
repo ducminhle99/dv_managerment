@@ -33,8 +33,8 @@ function ResetPassword({ submit, loading, messageError, setMessageError }: Props
   }, [form.values]);
 
   return (
-    <div className="w-full h-full bg-cover bg-[url('/assets/images/bg_login.jpg')] flex items-center justify-center min-w-[800px]">
-      <Form onFinish={form.handleSubmit} className="bg-white p-[50px] rounded-[6px] flex flex-col w-[546px]">
+    <div className="w-full h-full bg-cover center bg-[url('/assets/images/bg_login.jpg')] flex items-center justify-center min-w-[800px]">
+      <Form colon={false} onFinish={form.handleSubmit} className="bg-white p-[50px] rounded-[6px] flex flex-col w-[546px]">
         <img src="/assets/images/hybrid.png" alt="logo" className="h-[52px] w-[182px] pt-[2px] mb-[70px] mx-auto" />
         <Input.Group>
           <FormItem
