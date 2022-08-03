@@ -1,3 +1,5 @@
+export type actionString = 'logout' | 'changePassword';
+
 export default interface IMenu {
   title: string;
   path: string;
@@ -5,4 +7,5 @@ export default interface IMenu {
   childs?: IMenu[];
   roles?: number[];
   disable?: boolean;
+  action?: actionString;
 }

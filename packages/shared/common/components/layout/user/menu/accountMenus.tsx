@@ -1,6 +1,6 @@
-import IMenu from 'common/types/IMenu';
+import { ImportOutlined, KeyOutlined, UserOutlined } from '@ant-design/icons';
 import { Avatar } from 'antd';
-import { UserOutlined, ImportOutlined, KeyOutlined } from '@ant-design/icons';
+import IMenu from 'common/types/IMenu';
 export const AccountMenus: IMenu[] = [
   {
     title: 'Van nguyen',
@@ -14,12 +14,14 @@ export const AccountMenus: IMenu[] = [
   },
   {
     title: 'Change Password',
-    path: '/changePass',
+    path: '',
+    action: 'changePassword',
     icon: <KeyOutlined />,
   },
   {
     title: 'Sign out',
-    path: '/signout',
+    action: 'logout',
+    path: '',
     icon: <ImportOutlined />,
   },
 ];

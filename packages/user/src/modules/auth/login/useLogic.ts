@@ -13,7 +13,7 @@ export default function useLogic() {
   const [messageError, setMessageError] = useState('');
   const dispatch = useDispatch();
 
-  const { request, loading } = useApiCaller<LoginResDto>({ apiCaller: login, resDto: LoginResDto, errorCodeObject: errorCode.login });
+  const { loading } = useApiCaller<LoginResDto>({ apiCaller: login, resDto: LoginResDto, errorCodeObject: errorCode.login });
 
   const handleSubmit = async (data: FormValue) => {
     const dataBody = new LoginReqDto();
@@ -21,8 +21,18 @@ export default function useLogic() {
     dataBody.pwd = data.password;
     dataBody.isAdmin = false;
 
-    const result = await request(dataBody);
-
+    const result = {
+      code: 200,
+      message: 'success',
+      data: {
+        email: dataBody.email,
+        token: 'sdfhsdhfgsfgfgsfgvsfgvsy',
+        role: 1,
+        fullName: 'duc minh',
+        key: 'admin',
+        refreshToken: 'sjkgfdfhsdfis',
+      },
+    };
     if (result.data?.token) {
       dispatch(
         setAuthenticated({
