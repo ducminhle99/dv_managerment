@@ -20,3 +20,7 @@ export const checkToken = (data: CheckTokenReqDto) => {
 export const getNewToken = async (data: any) => {
   return client.post('/auth/refresh-token', data);
 };
+
+export const getProfile = async () => {
+  return client.get('/user/profile');
+};

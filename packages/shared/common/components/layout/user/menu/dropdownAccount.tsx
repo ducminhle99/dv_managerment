@@ -21,7 +21,7 @@ const Index = () => {
           'flex max-h-max relative border p-0 mt-0 shadow-[0_1px_5px_0px_#CCCCCC] text-[#333] w-[200px] h-[56px] rounded-[50px] justify-center  pr-2  items-center after:border-b-0'
         )}
       >
-        <div className="w-[250px] absolute bg-white right-[-3.875rem] ">
+        <div className="w-[250px] absolute bg-white right-[-3.875rem] shadow-[0_1px_5px_0px_#CCCCCC]">
           {AccountMenus.map((item, index) => {
             if (!item.action) {
               return (

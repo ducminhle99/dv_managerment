@@ -5,7 +5,6 @@ import { validationSchema } from '../validate';
 import FormItem from 'common/components/form/item';
 import { useEffect } from 'react';
 import Container from 'common/components/container';
-
 export type FormValue = {
   email: string;
 };

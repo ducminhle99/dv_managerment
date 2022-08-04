@@ -6,8 +6,8 @@ import { MenuUnAuthenticatedData } from './menuUnAuthenticatedData';
 const menu = true ? MenuBarData : MenuUnAuthenticatedData;
 const Index = () => {
   return (
-    <div className="h-[76px] px-24 shadow-lg flex items-center justify-between">
-      <img src="/assets/images/logo.png" className="w-[181px] h-[52px]" alt="" />
+    <div className="h-[76px] px-24 shadow-lg flex items-center justify-between bg-[#ffff]">
+      <img src="/assets/images/hybrid.png" className="w-[181px] h-[52px]" alt="" />
 
       <div className="flex">
         {menu.map((item, key) => {

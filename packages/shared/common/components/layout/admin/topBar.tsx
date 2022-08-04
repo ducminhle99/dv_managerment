@@ -10,7 +10,7 @@ function TopBar() {
   const [isUploadHover, setIsUploadHover] = useState(false);
   const { handleLogout } = useLogout();
 
-  const { authData, adminProfile } = useSelector((state) => ({
+  const { authData } = useSelector((state) => ({
     authData: state.authentication as IAuthState,
     adminProfile: state.profile.admin,
   }));
@@ -26,7 +26,7 @@ function TopBar() {
           <div className="ml-2 flex items-center">
             <UserCircle />
           </div>
-          <p className="ml-2 font-bold text-sm">{adminProfile?.fullName}</p>
+          {/* <p className="ml-2 font-bold text-sm">{adminProfile?.fullName}</p> */}
           <div className="border-0 border-l border-solid border-gray pl-4 pr-2 ml-4 text-sm">
             {/* <p className="font-bold text-sm">{roleLabelFull[authData.role]}</p> */}
           </div>

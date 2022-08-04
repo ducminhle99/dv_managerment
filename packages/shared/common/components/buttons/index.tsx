@@ -1,3 +1,6 @@
+import { ButtonSave } from './buttonSave';
+import { ButtonRemove } from './buttonRemove';
+import { ButtonCancel } from './buttonCancel';
 import { ButtonBack } from './buttonBack';
 import { ButtonUpdate, ButtonUpdateInList } from './buttonUpdate';
 import { ButtonDelete } from './buttonDelete';
@@ -6,4 +9,16 @@ import { ButtonDetail } from './buttonDetail';
 import { ButtonDownload } from './buttonDownload';
 import { ButtonAccept } from './buttonAccept';
 
-export { ButtonBack, ButtonUpdate, ButtonDelete, ButtonCreate, ButtonUpdateInList, ButtonDetail, ButtonDownload, ButtonAccept };
+export {
+  ButtonBack,
+  ButtonUpdate,
+  ButtonDelete,
+  ButtonCreate,
+  ButtonUpdateInList,
+  ButtonDetail,
+  ButtonDownload,
+  ButtonCancel,
+  ButtonRemove,
+  ButtonAccept,
+  ButtonSave,
+};

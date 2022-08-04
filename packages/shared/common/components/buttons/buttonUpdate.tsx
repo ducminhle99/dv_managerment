@@ -1,8 +1,6 @@
 import { Button } from 'antd';
-import Link from 'next/link';
-import Router from 'next/router';
 import clsx from 'clsx';
-import { PenIcon } from 'common/components/icons';
+import Link from 'next/link';
 
 type TypeBtnUpdateList = {
   title?: string;
@@ -10,15 +8,30 @@ type TypeBtnUpdateList = {
   className?: string;
 };
 
-export const ButtonUpdate = ({ route, className }: { route: string; className?: string }) => {
+export const ButtonUpdate = ({
+  titleClassName,
+  title,
+  handleUpdate,
+  handleChangeUpload,
+  className,
+  isDisabled,
+}: {
+  titleClassName?: string;
+  title: string;
+  handleUpdate?: () => void;
+  handleChangeUpload?: () => void;
+  className?: string;
+  isDisabled: boolean;
+}) => {
   return (
     <Button
+      onClick={handleUpdate}
+      onChange={handleChangeUpload}
       htmlType="submit"
-      className={clsx('h-[2.188rem] btn-secondary rounded py-2 px-3 flex items-center group', className)}
-      icon={<PenIcon />}
-      onClick={() => Router.push(route)}
+      className={clsx('h-[40px] rounded py-2 px-3 flex mx-0 items-center group', className)}
+      disabled={isDisabled}
     >
-      <p className="text-sm font-bold ml-7 pr-12 text-center group-hover:text-[#FC7679]">編集する</p>
+      <p className={clsx('text-sm font-bold text-center ', titleClassName)}>{title}</p>
     </Button>
   );
 };

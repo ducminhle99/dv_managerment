@@ -30,7 +30,7 @@ function TopBar() {
           <div className="ml-2 flex items-center">
             <UserCircle />
           </div>
-          <p className="ml-2 font-bold text-sm">{companyProfile?.fullName}</p>
+          {/* <p className="ml-2 font-bold text-sm">{companyProfile?.fullName}</p> */}
           <div className="border-0 border-l border-solid border-gray pl-4 pr-2 ml-4 text-sm">
             <p className="font-bold text-sm">{contactPlanLabel[companyProfile?.companyProfile?.compContractPlan as any]}</p>
           </div>

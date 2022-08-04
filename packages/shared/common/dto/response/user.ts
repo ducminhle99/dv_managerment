@@ -65,17 +65,15 @@ export class UserDetailResDto {
 }
 
 export class UserProfileDto {
-  email: string;
-  department: string;
-  phoneNumber1: string;
-  phoneNumber2: string;
-  phoneNumber3: string;
-  contractPhone: string;
+  avatar: string | File;
   firstName: string;
   lastName: string;
-  fullName: string;
+  email: string;
+  address: string;
+  phoneNumber: number;
+  userCode: string;
+  dayOfBirth: any;
   position: string;
-  role: Role;
 }
 
 export class CompanyInfo {

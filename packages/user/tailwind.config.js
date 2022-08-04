@@ -5,6 +5,10 @@ module.exports = {
   theme: {
     extend: {
       colors: {
+        while: {
+          'while-1': '#FFFFFF',
+          'while-2': '#cccccc',
+        },
         primary: '#1890ff',
         danger: '#FF3737',
         'primary-strong': '#cb6669',
@@ -15,6 +19,7 @@ module.exports = {
         'primary-light-300': '#ffb1b3',
         'primary-light-400': '#FED7D9',
         'primary-light-500': '#FFEFF0',
+        'primary-light-600': '#fa4710',
         pink: {
           DEFAULT: '#FE9699',
           lighter: '#FED7D9',
@@ -25,12 +30,15 @@ module.exports = {
           DEFAULT: '#dddddd',
           darker: '#555555',
           'darker-1': '#EEEEEE',
+          'darker-2': '#979797',
         },
         orange: {
           DEFAULT: '#FCAD0E',
           lighter: '#FFF3E4',
           'light-1': '#FC950E',
           'light-2': '#FFF3E4',
+          'light-3': '#FF8E25',
+          'light-4': '#e67e1c',
         },
         black: {
           lighter: '#4D4D4D',
