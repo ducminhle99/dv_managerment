@@ -1,7 +1,7 @@
 import clsx from 'clsx';
 import React from 'react';
 
-function MessageErrors({ message, className }: { message: string; className?: string }) {
+function MessageErrors({ message, className }: { message?: string; className?: string }) {
   if (!message) {
     return null;
   }

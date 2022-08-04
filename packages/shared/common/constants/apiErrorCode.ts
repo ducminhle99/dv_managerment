@@ -66,6 +66,9 @@ export const errorCode = {
   adminApproveCompany: {
     invalid: 'この企業アカウントは既に変更されているためもう使用できません。',
   } as any,
+  report: {
+    not_found: 'report not found',
+  } as any,
 };
 
 export enum ErrorCodeCommon {
