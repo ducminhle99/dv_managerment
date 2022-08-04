@@ -1,4 +1,4 @@
-import { LoginReqDto, ResetPasswordReqDto, InputPasswordReqDto, CheckTokenReqDto } from 'common/dto/request';
+import { LoginReqDto, ResetPasswordReqDto, InputPasswordReqDto, ChangePasswordReqDto, CheckTokenReqDto } from 'common/dto/request';
 import client from './client';
 
 export const login = (data: LoginReqDto) => {
@@ -11,6 +11,10 @@ export const resetPassword = (data: ResetPasswordReqDto) => {
 
 export const inputPassword = (data: InputPasswordReqDto) => {
   return client.post('/user/reset-password', data);
+};
+
+export const changePassword = (data: ChangePasswordReqDto) => {
+  return client.post('/user/change-password', data);
 };
 
 export const checkToken = (data: CheckTokenReqDto) => {

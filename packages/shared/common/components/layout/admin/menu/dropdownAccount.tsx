@@ -3,14 +3,16 @@ import { Avatar, Menu } from 'antd';
 import clsx from 'clsx';
 import { useLogout } from 'common/hooks/useLogout';
 import Link from 'next/link';
+import { useRouter } from 'next/router';
 import { AccountMenus } from './accountMenus';
 
 const Index = () => {
+  const router = useRouter();
   const { handleLogout } = useLogout();
 
   const listAction: { [key: string]: () => void } = {
     logout: handleLogout,
-    changePassword: () => alert('change password'),
+    changePassword: () => router.push('/change-password'),
   };
 
   return (

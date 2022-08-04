@@ -45,3 +45,9 @@ export class CompanyProfileUpdateDto extends UserProfileUpdateDto {
   comEmployeeSize?: number;
   periodicReportFlg: boolean;
 }
+
+export class ChangePasswordReqDto {
+  userKey: string;
+  password: string;
+  newPassword: string;
+}

@@ -11,6 +11,8 @@ module.exports = {
         },
         primary: '#1890ff',
         danger: '#FF3737',
+        secondary: '#FF8E25',
+        'secondary-strong': '#ee7d13',
         'primary-strong': '#cb6669',
         'primary-light': '#ffeff0',
         'primary-strong-100': '#FE9699',
