@@ -23,7 +23,6 @@
 .create-modal-form .ant-row .ant-col label {
   float: left;
 }
-
 .ant-select-selector {
   height: 40px !important;
   border-radius: 6px !important;
@@ -74,4 +73,13 @@ thead[class*='ant-table-thead'] th:last-child {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.input-datepicker .ant-input-wrapper {
+  height: 100%;
+}
+
+.input-datepicker .ant-input-wrapper .ant-input {
+  height: 100%;
+  border-radius: 6px 0 0 6px;
 }

@@ -1,14 +1,14 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { Button, DatePicker, Input } from 'antd';
-import locale from 'antd/lib/date-picker/locale/ja_JP';
+import locale from 'antd/lib/date-picker/locale/vi_VN';
 import ReactInputMask from 'react-input-mask';
 import { CalendarIcon } from './icons';
 import clsx from 'clsx';
 import moment, { Moment } from 'moment';
 import { PickerProps } from 'antd/lib/date-picker/generatePicker';
-import 'moment/locale/ja';
+import 'moment/locale/vi';
 
-moment.locale('ja');
+moment.locale('vi');
 
 type Props = {
   className?: string;
@@ -42,7 +42,7 @@ const DatePickerInputMark = ({ className, onChange, value, inputClass, isEditMod
 
   const handleOnBlurInput = () => {
     setOpen(false);
-    const valueMomentObj = moment(valueStr, 'YYYY/MM/DD');
+    const valueMomentObj = moment(valueStr, 'DD-MM-YYYY');
 
     if (!valueMomentObj.isValid()) {
       setValueStr('');
@@ -79,7 +79,7 @@ const DatePickerInputMark = ({ className, onChange, value, inputClass, isEditMod
 
   useEffect(() => {
     if (value && moment(value).isValid()) {
-      const valueStr = moment(value).format('YYYY-MM-DD');
+      const valueStr = moment(value).format('DD-MM-YYYY');
       setValueStr(valueStr);
     } else {
       setValueStr('');
@@ -95,7 +95,7 @@ const DatePickerInputMark = ({ className, onChange, value, inputClass, isEditMod
       <ReactInputMask
         onMouseDown={() => setOpen(true)}
         onBlur={handleOnBlurInput}
-        mask="9999/99/99"
+        mask="99-99-9999"
         disabled={rest.disabled}
         value={valueStr}
         onChange={(e) => setValueStr(e.target.value)}
@@ -103,7 +103,7 @@ const DatePickerInputMark = ({ className, onChange, value, inputClass, isEditMod
         {(inputProps: any) => (
           <Input
             ref={inputRef}
-            placeholder="YYYY/MM/DD"
+            placeholder="DD-MM-YYYY"
             {...inputProps}
             disabled={rest.disabled}
             className={clsx(inputClass, 'input-datepicker')}
