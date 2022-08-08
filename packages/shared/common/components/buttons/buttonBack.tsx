@@ -6,7 +6,10 @@ export const ButtonBack = ({ className, title = 'BACK' }: { className?: string; 
   return (
     <Button
       type="text"
-      className={clsx('bg-white px-0 py-0 hover:bg-transparent h-auto min-h-0 rounded-md shadow border border-solid border-[#dddddd]', className)}
+      className={clsx(
+        'bg-white px-0 py-0 hover:bg-transparent h-10 min-h-0 rounded-md shadow border border-solid border-gray min-w-[100px]',
+        className
+      )}
       onClick={() => Router.back()}
     >
       <div className="w-full flex item-center justify-center hover:text-primary">

@@ -6,11 +6,10 @@ type DataType = {
   action?: () => void | string;
   title?: string;
   className?: string;
-  iconBtn?: string;
   disabled?: boolean;
 };
 
-export const ButtonCreate = ({ action, title, className, iconBtn, disabled = false }: DataType) => {
+export const ButtonCreate = ({ action, title, className, disabled = false }: DataType) => {
   const handlePage = () => {
     if (typeof action === 'string') {
       Router.push(action);
@@ -24,10 +23,9 @@ export const ButtonCreate = ({ action, title, className, iconBtn, disabled = fal
     <Button
       disabled={disabled}
       onClick={handlePage}
-      className={clsx('bg-primary flex items-center hover:bg-orange border-0', className)}
-      icon={iconBtn}
+      className={clsx('hover:bg-primary items-center bg-orange h-10 min-w-[100px] rounded-md flex justify-center ', className)}
     >
-      <p className={clsx('text-white font-bold', { 'ml-3': !!iconBtn })}>{title}</p>
+      <p className="text-white font-bold">{title}</p>
     </Button>
   );
 };
