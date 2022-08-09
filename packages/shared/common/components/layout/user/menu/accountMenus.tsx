@@ -4,7 +4,7 @@ import IMenu from 'common/types/IMenu';
 export const AccountMenus: IMenu[] = [
   {
     title: 'Van nguyen',
-    path: '/account',
+    path: '/profile',
     icon: <Avatar icon={<UserOutlined />} />,
   },
   {

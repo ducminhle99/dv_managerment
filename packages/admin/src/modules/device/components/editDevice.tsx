@@ -12,6 +12,7 @@ import { useState } from 'react';
 import DeviceSchema from '../validate';
 
 export type FormValues = {
+  deviceId?: number;
   image: string | File;
   name: string;
   quantity: number;
@@ -29,31 +30,24 @@ export type CategoryDto = {
 }[];
 export interface Props {
   submit: (data: DeviceCreateDto) => void;
-  loading: boolean;
-  messageError: string;
-  setMessageError: (data: string) => void;
   brandData: BrandDto;
   categoryData: CategoryDto;
+  data: DeviceCreateDto;
+  loading: boolean;
 }
 
-function Index({ submit, brandData, categoryData }: Props) {
+function Index({ submit, data, brandData, categoryData }: Props) {
   const [isImageFile, setIsImageFile] = useState<boolean>(false);
 
   const form = useFormHandler<FormValues>({
-    initialValues: {
-      image: 'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png',
-      name: '',
-      quantity: 1,
-      brandID: 1,
-      categoryID: 1,
-      description: '',
-    },
+    initialValues: data,
     validationSchema: DeviceSchema,
     validateOnBlur: true,
     validateOnChange: true,
     onSubmit: submit,
   });
   const { errors, values, handleChange } = form;
+
   return (
     <Container title="ADD DEVICE" className="pb-20" rootClassName="mt-[126px] max-w-7xl">
       <Form layout="horizontal" labelCol={{ span: 7 }}>
@@ -139,7 +133,7 @@ function Index({ submit, brandData, categoryData }: Props) {
             </FormItem>
           </div>
           <ButtonCreate
-            title="Add new"
+            title="Save"
             className="bg-primary border-primary rounded-[6px] hover:bg-primary w-[120px] mt-[10px] justify-center  h-[40px]"
           />
         </div>

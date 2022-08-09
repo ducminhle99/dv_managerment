@@ -1,7 +1,7 @@
 import { withAuthentication } from 'common/hocs';
-import Index from '../../../modules/device';
+import { CreateDevice } from '../../../modules/device';
 
-const IndexAuthenticated = withAuthentication(Index);
+const IndexAuthenticated = withAuthentication(CreateDevice);
 IndexAuthenticated.layout = 'admin';
 
 export default IndexAuthenticated;

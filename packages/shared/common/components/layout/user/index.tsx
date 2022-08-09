@@ -3,7 +3,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
   return (
     <>
       <Menu />
-      <main>{children}</main>
+      <main className="h-full w-full">{children}</main>
     </>
   );
 }

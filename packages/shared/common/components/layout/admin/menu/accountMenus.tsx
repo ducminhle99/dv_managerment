@@ -4,7 +4,7 @@ import { UserOutlined, ImportOutlined, KeyOutlined } from '@ant-design/icons';
 export const AccountMenus: IMenu[] = [
   {
     title: 'Van nguyen',
-    path: '/account',
+    path: '/profile',
     icon: <Avatar className="mt-[10px]" icon={<UserOutlined />} />,
   },
   {

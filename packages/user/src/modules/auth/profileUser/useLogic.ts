@@ -10,7 +10,7 @@ const userProfiledata = {
   address: 'Hoi An',
   phoneNumber: 12345678910,
   userCode: '3333333',
-  dayOfBirth: '14/07/2022',
+  dayOfBirth: '2022/07/14',
   position: 'Dev',
 };
 export default function useLogic() {
