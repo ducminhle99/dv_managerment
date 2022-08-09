@@ -6,8 +6,8 @@ module.exports = {
     extend: {
       colors: {
         while: {
-          'while-1': '#FFFFFF',
-          'while-2': '#cccccc',
+          'light-1': '#FFFFFF',
+          'light-2': '#cccccc',
         },
         primary: '#1890ff',
         danger: '#FF3737',

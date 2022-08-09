@@ -2,11 +2,13 @@ import { DatePicker, Form, Image, Input, Upload } from 'antd';
 import clsx from 'clsx';
 import { ButtonBack, ButtonCancel, ButtonRemove, ButtonSave, ButtonUpdate } from 'common/components/buttons';
 import Container from 'common/components/container';
+import FormItem from 'common/components/form/item';
 import { UserProfileDto } from 'common/dto/response';
 import { useFormHandler } from 'common/hooks';
+import { checkFieldErrorHelper } from 'common/utilities/validate';
 import moment from 'moment';
 import { useEffect, useState } from 'react';
-import UserProfileSchema from '../validate';
+import validationSchema from '../validate';
 export type FormValues = {
   avatar: string | File;
   firstName: string;
@@ -25,7 +27,6 @@ export interface Props {
   messageError: string;
   setMessageError: (data: string) => void;
   userProfiledata: UserProfileDto;
-  setUserProfileData: (data: string) => void;
 }
 
 const ProfileUserComponent = ({ submit, loading, messageError, setMessageError, userProfiledata }: Props) => {
@@ -34,7 +35,7 @@ const ProfileUserComponent = ({ submit, loading, messageError, setMessageError, 
 
   const form = useFormHandler<FormValues>({
     initialValues: userProfiledata,
-    validationSchema: UserProfileSchema,
+    validationSchema,
     validateOnBlur: true,
     validateOnChange: true,
     onSubmit: submit,
@@ -49,9 +50,6 @@ const ProfileUserComponent = ({ submit, loading, messageError, setMessageError, 
   const handleEditProfile = () => {
     setIsShowFormEdit(true);
   };
-  const handleDeleteAvatar = () => {
-    values.avatar = '';
-  };
   const handleCancel = () => {
     setIsShowFormEdit(false);
   };
@@ -59,9 +57,9 @@ const ProfileUserComponent = ({ submit, loading, messageError, setMessageError, 
   return (
     <Container title="USER PROFILE" className="pb-20" rootClassName="mt-[126px]">
       <Form layout="vertical" onFinish={form.handleSubmit}>
-        <div className="flex flex-wrap bg-while-while-1 border border-solid border-gray-darker-2 rounded-[6px] box-border max-w-[896px] min-h-[846px] py-[50px] px-[46px] mt-[48px]  m-auto ">
+        <div className="flex flex-wrap bg-while-light-1 border border-solid border-gray-darker-2 rounded-[6px] box-border max-w-[896px] min-h-[846px] py-[50px] px-[46px] mt-[48px]  m-auto ">
           <div className="w-[40%] h-full justify-center flex">
-            <Form.Item label="" valuePropName="fileList">
+            <FormItem label="" valuePropName="fileList">
               <Image
                 width={225}
                 height={195}
@@ -88,10 +86,10 @@ const ProfileUserComponent = ({ submit, loading, messageError, setMessageError, 
                   />
                 </>
               )}
-            </Form.Item>
+            </FormItem>
           </div>
           <div className="w-[60%] h-full">
-            <p className="text-while-while-1 mt-[83px]">Your photo should be in PNG or JPG format</p>
+            <p className="text-while-light-1 mt-[83px]">Your photo should be in PNG or JPG format</p>
             <div className="flex mt-[48px]">
               <Upload
                 name="avatar"
@@ -105,7 +103,7 @@ const ProfileUserComponent = ({ submit, loading, messageError, setMessageError, 
               >
                 <ButtonUpdate
                   title="Choose image"
-                  titleClassName={clsx({ 'text-while-while-2': !isShowFormEdit }, { 'text-white': isShowFormEdit })}
+                  titleClassName={clsx({ 'text-while-light-2': !isShowFormEdit }, { 'text-white': isShowFormEdit })}
                   isDisabled={!isShowFormEdit}
                   className={clsx('max-w-[123px]  justify-center ', {
                     'bg-orange-light-3 border-orange-light-3 hover:bg-orange-light-4': isShowFormEdit,
@@ -114,100 +112,94 @@ const ProfileUserComponent = ({ submit, loading, messageError, setMessageError, 
               </Upload>
               <ButtonRemove
                 title="Remove"
-                titleClassName={clsx({ 'text-while-while-2': !isShowFormEdit }, { 'text-white': isShowFormEdit })}
+                titleClassName={clsx({ 'text-while-light-2': !isShowFormEdit }, { 'text-white': isShowFormEdit })}
                 isDisabled={!isShowFormEdit}
-                handleDelete={handleDeleteAvatar}
+                handleDelete={() => form.setFieldValue('avatar', '')}
                 className={clsx('max-w-[123px] pl-7  justify-center ml-[89px]', {
                   'bg-orange-light-3 border-orange-light-3 hover:bg-orange-light-4 ': isShowFormEdit,
                 })}
               />
             </div>
             <div className="flex mt-[30px]">
-              <Form.Item className="font-medium" label="First name">
+              <FormItem className="font-medium" label="First name" errorMsg={checkFieldErrorHelper(form, 'firstName')}>
                 {!isShowFormEdit ? (
                   <p className="font-normal text-gray-darker">{userProfiledata.firstName}</p>
                 ) : (
-                  <>
-                    <Input
-                      name="firstName"
-                      className={clsx('max-w-[200px] text-gray-darker border', { 'border border-solid border-primary-light-600': errors.firstName })}
-                      onChange={handleChange}
-                      value={values.firstName}
-                      disabled={!isShowFormEdit}
-                    />
-                    {errors && errors.firstName && <p className="text-primary-light-600">{errors.firstName}</p>}
-                  </>
+                  <Input
+                    {...form.register('firstName')}
+                    name="firstName"
+                    className={clsx('max-w-[200px] text-gray-darker border', { 'border border-solid border-primary-light-600': errors.firstName })}
+                    onChange={handleChange}
+                    value={values.firstName}
+                    disabled={!isShowFormEdit}
+                  />
                 )}
-              </Form.Item>
-              <Form.Item label="Last name" className={clsx('ml-7  font-medium', { 'ml-[150px]': !isShowFormEdit })}>
+              </FormItem>
+              <FormItem
+                label="Last name"
+                errorMsg={checkFieldErrorHelper(form, 'lastName')}
+                className={clsx('ml-7  font-medium', { 'ml-[150px]': !isShowFormEdit })}
+              >
                 {!isShowFormEdit ? (
                   <p className="font-normal text-gray-darker">{userProfiledata.lastName}</p>
                 ) : (
-                  <>
-                    <Input
-                      name="lastName"
-                      onChange={handleChange}
-                      value={values.lastName}
-                      className={clsx('max-w-[200px] text-gray-darker border', { 'border border-solid border-primary-light-600': errors.lastName })}
-                      disabled={!isShowFormEdit}
-                    />
-                    {errors && errors.lastName && <p className="text-primary-light-600">{errors.lastName}</p>}
-                  </>
+                  <Input
+                    {...form.register('lastName')}
+                    name="lastName"
+                    onChange={handleChange}
+                    value={values.lastName}
+                    className={clsx('max-w-[200px] text-gray-darker border', { 'border border-solid border-primary-light-600': errors.lastName })}
+                    disabled={!isShowFormEdit}
+                  />
                 )}
-              </Form.Item>
+              </FormItem>
             </div>
-            <Form.Item label="Email" className=" font-medium ">
+            <FormItem label="Email" errorMsg={checkFieldErrorHelper(form, 'email')} className=" font-medium ">
               {!isShowFormEdit ? (
                 <p className="font-normal text-gray-darker">{userProfiledata.email}</p>
               ) : (
-                <>
-                  <Input
-                    name="email"
-                    onChange={handleChange}
-                    value={values.email}
-                    className={clsx('max-w-[435px] text-gray-darker border', { 'border border-solid border-primary-light-600': errors.email })}
-                    disabled={!isShowFormEdit}
-                  />
-                  {errors && errors.email && <p className="text-primary-light-600">{errors.email}</p>}
-                </>
+                <Input
+                  {...form.register('email')}
+                  name="email"
+                  onChange={handleChange}
+                  value={values.email}
+                  className={clsx('max-w-[435px] text-gray-darker border', { 'border border-solid border-primary-light-600': errors.email })}
+                  disabled={!isShowFormEdit}
+                />
               )}
-            </Form.Item>
-            <Form.Item className="font-medium" label="Address">
+            </FormItem>
+            <FormItem className="font-medium" label="Address" errorMsg={checkFieldErrorHelper(form, 'address')}>
               {!isShowFormEdit ? (
                 <p className="font-normal text-gray-darker">{userProfiledata.address}</p>
               ) : (
-                <>
-                  <Input
-                    name="address"
-                    onChange={handleChange}
-                    value={values.address}
-                    className={clsx('max-w-[435px] text-gray-darker border', { 'border border-solid border-primary-light-600': errors.address })}
-                    disabled={!isShowFormEdit}
-                  />
-                  {errors && errors.address && <p className="text-primary-light-600">{errors.address}</p>}
-                </>
+                <Input
+                  {...form.register('address')}
+                  name="address"
+                  onChange={handleChange}
+                  value={values.address}
+                  className={clsx('max-w-[435px] text-gray-darker border', { 'border border-solid border-primary-light-600': errors.address })}
+                  disabled={!isShowFormEdit}
+                />
               )}
-            </Form.Item>
-            <Form.Item className="font-medium" label="Phone number">
+            </FormItem>
+            <FormItem className="font-medium" label="Phone number" errorMsg={checkFieldErrorHelper(form, 'phoneNumber')}>
               {!isShowFormEdit ? (
                 <p className="font-normal text-gray-darker">{userProfiledata.phoneNumber}</p>
               ) : (
-                <>
-                  <Input
-                    name="phoneNumber"
-                    onChange={handleChange}
-                    value={values.phoneNumber}
-                    className={clsx('max-w-[435px] text-gray-darker border', { 'border border-solid border-primary-light-600': errors.phoneNumber })}
-                    disabled={!isShowFormEdit}
-                  />
-                  {errors && errors.phoneNumber && <p className="text-primary-light-600">{errors.phoneNumber}</p>}
-                </>
+                <Input
+                  {...form.register('phoneNumber')}
+                  name="phoneNumber"
+                  onChange={handleChange}
+                  value={values.phoneNumber}
+                  className={clsx('max-w-[435px] text-gray-darker border', { 'border border-solid border-primary-light-600': errors.phoneNumber })}
+                  disabled={!isShowFormEdit}
+                />
               )}
-            </Form.Item>
-            <Form.Item className="font-medium" label="User-code">
+            </FormItem>
+            <FormItem className="font-medium" label="User-code" errorMsg={checkFieldErrorHelper(form, 'userCode')}>
               <p className="font-normal text-gray-darker">{userProfiledata.userCode}</p>
-            </Form.Item>
-            <Form.Item className="font-medium" label="Day of birth">
+            </FormItem>
+            <FormItem className="font-medium" label="Day of birth">
               {!isShowFormEdit ? (
                 <p className="font-normal text-gray-darker">{userProfiledata.dayOfBirth}</p>
               ) : (
@@ -219,10 +211,10 @@ const ProfileUserComponent = ({ submit, loading, messageError, setMessageError, 
                   disabled={!isShowFormEdit}
                 />
               )}
-            </Form.Item>
-            <Form.Item className="font-medium" label="Position">
+            </FormItem>
+            <FormItem className="font-medium" label="Position">
               <p className="font-normal text-gray-darker">{userProfiledata.position}</p>
-            </Form.Item>
+            </FormItem>
             <div className="flex">
               {isShowFormEdit && (
                 <ButtonSave

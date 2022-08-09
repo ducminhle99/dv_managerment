@@ -21,7 +21,7 @@ export const ButtonUpdate = ({
   handleUpdate?: () => void;
   handleChangeUpload?: () => void;
   className?: string;
-  isDisabled: boolean;
+  isDisabled?: boolean;
 }) => {
   return (
     <Button

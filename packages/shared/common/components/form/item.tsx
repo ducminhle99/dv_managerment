@@ -1,7 +1,7 @@
 import { FormItemProps, Form } from 'antd';
 import { motion, AnimatePresence } from 'framer-motion';
 
-export default function FormItem({ errorMsg, ...props }: { errorMsg: string | undefined } & FormItemProps) {
+export default function FormItem({ errorMsg, ...props }: { errorMsg?: string | undefined } & FormItemProps) {
   return (
     <Form.Item {...props} validateStatus={errorMsg ? 'error' : ''} help={errorMsg}>
       {props.children}

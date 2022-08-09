@@ -11,7 +11,7 @@ export const MenuBarData: IMenu[] = [
   },
   {
     title: 'Device',
-    path: '/device',
+    path: '/devices',
   },
   {
     title: 'Borrow',

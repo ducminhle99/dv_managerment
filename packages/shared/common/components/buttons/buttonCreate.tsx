@@ -3,10 +3,10 @@ import { Button } from 'antd';
 import Router from 'next/router';
 
 type DataType = {
-  action: any;
+  action?: () => void | string;
   title?: string;
-  className?: any;
-  iconBtn?: any;
+  className?: string;
+  iconBtn?: string;
   disabled?: boolean;
 };
 

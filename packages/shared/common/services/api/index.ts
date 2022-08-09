@@ -15,3 +15,4 @@ export * from './admin/invoice';
 export * from './company/inquiry';
 export * from './admin/report';
 export * from './admin/brand';
+export * from './admin/device';
