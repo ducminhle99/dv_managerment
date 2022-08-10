@@ -1,6 +1,7 @@
 import { withAuthentication } from 'common/hocs';
 import Report from 'modules/report';
 import { useRouter } from 'next/router';
+import ListReport from 'modules/report_list';
 
 const Index = () => {
   const router = useRouter();
@@ -8,7 +9,7 @@ const Index = () => {
   if (id && Number(id)) {
     return <Report id={+id} />;
   }
-  return <h1>list report page</h1>;
+  return <ListReport />;
 };
 
 const IndexAuthenticated = withAuthentication(Index);

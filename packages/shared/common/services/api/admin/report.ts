@@ -1,5 +1,8 @@
 import client from '../client';
 
+export const getAllReport = () => {
+  return client.get('/reports');
+};
 export const getReport = (id: number) => {
   return client.get(`/reports/${id}`);
 };
