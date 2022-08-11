@@ -8,6 +8,7 @@ import { ButtonCreate } from './buttonCreate';
 import { ButtonDetail } from './buttonDetail';
 import { ButtonDownload } from './buttonDownload';
 import { ButtonAccept } from './buttonAccept';
+import { ButtonFilter } from './buttonFilter';
 
 export {
   ButtonBack,
@@ -21,4 +22,5 @@ export {
   ButtonRemove,
   ButtonAccept,
   ButtonSave,
+  ButtonFilter,
 };

@@ -11,7 +11,7 @@ type DataType = {
   loading: boolean;
 };
 
-export const ButtonAccept = ({ action, title, className, iconBtn, disabled = false, loading = false }: DataType) => {
+export const ButtonFilter = ({ action, title, className, iconBtn, disabled = false, loading = false }: DataType) => {
   const handlePage = () => {
     if (typeof action === 'string') {
       Router.push(action);

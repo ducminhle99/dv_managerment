@@ -1,5 +1,6 @@
 import { Pagination, Table } from 'antd';
 import { ColumnsType } from 'antd/lib/table';
+import clsx from 'clsx';
 
 interface Props {
   data: object[];
@@ -9,11 +10,12 @@ interface Props {
   page: number;
   loading?: boolean;
   handleChangePage: (page: number, limit: number) => void;
+  className?: string;
 }
 
-export function TableListData({ data, header, limit, total, page, loading, handleChangePage }: Props) {
+export function TableListData({ data, header, limit, total, page, loading, handleChangePage, className }: Props) {
   return (
-    <div className="flex flex-col items-center">
+    <div className={clsx('flex flex-col items-center', className)}>
       <Table className="" pagination={false} dataSource={data} columns={header} loading={loading} />
       <Pagination
         className="mt-[20px]"
