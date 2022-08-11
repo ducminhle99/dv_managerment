@@ -67,3 +67,11 @@ thead[class*='ant-table-thead'] th:last-child {
   font-size: 32px !important;
   padding: 16px 0 16px 0 !important;
 }
+.ant-table-wrapper {
+  width: 100%;
+}
+.ant-select-selection-placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
