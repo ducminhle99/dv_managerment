@@ -12,6 +12,7 @@ const listReport = [
     dayReport: '20/20/2022',
     type: ReportType.BROKEN,
     userName: 'nguyen van a',
+    key: 1,
   },
   {
     id: 2,
@@ -21,6 +22,7 @@ const listReport = [
     dayReport: '20/20/2022',
     type: ReportType.BROKEN,
     userName: 'nguyen van a',
+    key: 2,
   },
   {
     id: 3,
@@ -30,6 +32,7 @@ const listReport = [
     dayReport: '20/20/2022',
     type: ReportType.BROKEN,
     userName: 'nguyen van a',
+    key: 3,
   },
   {
     id: 4,
@@ -39,6 +42,7 @@ const listReport = [
     dayReport: '20/20/2022',
     type: ReportType.BROKEN,
     userName: 'nguyen van a',
+    key: 4,
   },
   {
     id: 5,
@@ -48,6 +52,7 @@ const listReport = [
     dayReport: '20/20/2022',
     type: ReportType.BROKEN,
     userName: 'nguyen van a',
+    key: 5,
   },
 ];
 export default function useLogic() {

@@ -1,7 +1,7 @@
 import { withAuthentication } from 'common/hocs';
-
+import BorrowDevice from 'modules/borrowing_device';
 const Index = () => {
-  return <h1>OK</h1>;
+  return <BorrowDevice />;
 };
 
 const IndexAuthenticated = withAuthentication(Index);
