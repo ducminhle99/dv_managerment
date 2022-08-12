@@ -53,9 +53,8 @@ const ProfileUserComponent = ({ submit, loading, messageError, setMessageError, 
   const handleCancel = () => {
     setIsShowFormEdit(false);
   };
-
   return (
-    <Container title="USER PROFILE" className="pb-20" rootClassName="mt-[126px]">
+    <Container title="USER PROFILE" className="pb-20" rootClassName="mt-[126px] max-w-7xl">
       <Form layout="vertical" onFinish={form.handleSubmit}>
         <div className="flex flex-wrap bg-while-light-1 border border-solid border-gray-darker-2 rounded-[6px] box-border max-w-[896px] min-h-[846px] py-[50px] px-[46px] mt-[48px]  m-auto ">
           <div className="w-[40%] h-full justify-center flex">
@@ -205,8 +204,9 @@ const ProfileUserComponent = ({ submit, loading, messageError, setMessageError, 
               ) : (
                 <DatePicker
                   name="dayOfBirth"
-                  onChange={handleChange}
-                  value={moment(values.dayOfBirth)}
+                  format={'DD-MM-YYYY'}
+                  onChange={(e, date) => form.setFieldValue('dayOfBirth', date)}
+                  defaultValue={moment(values.dayOfBirth)}
                   className={clsx('max-w-[435px] text-gray-darker')}
                   disabled={!isShowFormEdit}
                 />

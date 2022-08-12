@@ -69,6 +69,9 @@ export const errorCode = {
   report: {
     not_found: 'report not found',
   } as any,
+  device: {
+    not_found: 'device not found',
+  } as any,
 };
 
 export enum ErrorCodeCommon {

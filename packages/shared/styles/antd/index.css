@@ -23,12 +23,12 @@
 .create-modal-form .ant-row .ant-col label {
   float: left;
 }
-.ant-select-selector {
+.ant-select.ant-select-single.ant-select-show-arrow .ant-select-selector {
   height: 40px !important;
   border-radius: 6px !important;
   line-height: 40px !important;
 }
-.ant-select-selection-item {
+.ant-select.ant-select-single.ant-select-show-arrow .ant-select-selector .ant-select-selection-item {
   line-height: 40px !important;
 }
 

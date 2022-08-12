@@ -1,7 +1,8 @@
 import CreateDeviceComponent from './components/createDevice';
-import useLogic from './useLogic';
-function Index() {
-  const { handleSubmit, messageError, setMessageError, brandData, categoryData, loading } = useLogic();
+import EditDeviceComponent from './components/editDevice';
+import { useCreateDevice, useEditDevice } from './useLogic';
+function CreateDevice() {
+  const { handleSubmit, messageError, setMessageError, brandData, categoryData, loading } = useCreateDevice();
   return (
     <CreateDeviceComponent
       submit={handleSubmit}
@@ -13,4 +14,8 @@ function Index() {
     />
   );
 }
-export default Index;
+function EditDevice({ id }: { id: number }) {
+  const { data, loading, handleSubmit, brandData, categoryData } = useEditDevice(id);
+  return <EditDeviceComponent brandData={brandData} categoryData={categoryData} submit={handleSubmit} data={data} loading={loading} />;
+}
+export { EditDevice, CreateDevice };

@@ -1,4 +1,4 @@
-import { ButtonCreate } from 'common/components/buttons';
+import { ButtonCreate, ButtonUpdateInList } from 'common/components/buttons';
 import { withAuthentication } from 'common/hocs';
 
 const Index = () => {
@@ -6,6 +6,7 @@ const Index = () => {
     <>
       <h1>list device page</h1>
       <ButtonCreate title="ADD NEW" action="/devices/createDevice" />
+      <ButtonUpdateInList title="EDIT" path="/devices/editDevice" />
     </>
   );
 };
