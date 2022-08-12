@@ -8,7 +8,8 @@ import { useFormHandler } from 'common/hooks';
 import { checkFieldErrorHelper } from 'common/utilities/validate';
 import moment from 'moment';
 import { useEffect, useState } from 'react';
-import validationSchema from '../validate';
+import validationSchema from './validate';
+
 export type FormValues = {
   avatar: string | File;
   firstName: string;
@@ -29,7 +30,7 @@ export interface Props {
   userProfiledata: UserProfileDto;
 }
 
-const ProfileUserComponent = ({ submit, loading, messageError, setMessageError, userProfiledata }: Props) => {
+const ProfileComponent = ({ submit, loading, messageError, setMessageError, userProfiledata }: Props) => {
   const [isShowFormEdit, setIsShowFormEdit] = useState<boolean>(false);
   const [isAvatarFile, setIsAvatarFile] = useState<boolean>(false);
 
@@ -253,4 +254,4 @@ const ProfileUserComponent = ({ submit, loading, messageError, setMessageError, 
   );
 };
 
-export default ProfileUserComponent;
+export default ProfileComponent;
