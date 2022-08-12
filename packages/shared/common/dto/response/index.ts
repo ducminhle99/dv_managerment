@@ -13,3 +13,5 @@ export * from './payment';
 export * from './invoice';
 export * from './report';
 export * from './reportList';
+export * from './userDeviceList';
+export * from './userReportList';

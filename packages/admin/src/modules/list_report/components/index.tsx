@@ -9,7 +9,6 @@ const { Option } = Select;
 const { Search } = Input;
 interface Props {
   data: object[];
-  header?: any;
   limit: number;
   total: number;
   page: number;
@@ -54,31 +53,26 @@ const ListReport = ({ messageError, data, limit, page, total, loading, handleCha
     {
       dataIndex: 'deviceId',
       title: 'Device ID',
-      key: 'deviceId',
     },
     {
       dataIndex: 'deviceName',
       title: 'Name',
-      key: 'deviceName',
     },
     {
       dataIndex: 'dayReport',
       title: 'Day Report',
-      key: 'dayReport',
     },
     {
       dataIndex: 'type',
       title: 'Type',
-      key: 'type',
     },
     {
       dataIndex: 'userName',
       title: 'User',
-      key: 'userName',
     },
     {
       title: 'Action',
-      key: 'actions',
+
       render: (record: ReportItem) => {
         return (
           <div className="flex flex-row-reverse">
@@ -126,6 +120,8 @@ const ListReport = ({ messageError, data, limit, page, total, loading, handleCha
         loading={loading}
         handleChangePage={handleChangePage}
         className="w-full"
+        rowSelection={{ type: 'checkbox' }}
+        rowKey="id"
       />
       <MessageErrors message={messageError} />
     </Container>
