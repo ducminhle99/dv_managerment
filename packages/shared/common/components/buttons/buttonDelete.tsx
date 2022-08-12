@@ -9,14 +9,8 @@ export interface Props {
 
 export const ButtonDelete = ({ className, loading, handleDelete }: Props) => {
   return (
-    <Button
-      size="middle"
-      danger
-      className={clsx('h-9 py-0 px-9 hover:bg-[#FC7679] hover:text-white', className)}
-      loading={loading}
-      onClick={handleDelete}
-    >
-      <span className="text-sm">アカウント削除</span>
+    <Button danger className={clsx('h-10 min-w-[100px] bg-danger rounded-md hover:opacity-70', className)} loading={loading} onClick={handleDelete}>
+      <span className="text-sm text-white">Delete</span>
     </Button>
   );
 };

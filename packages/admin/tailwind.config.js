@@ -21,8 +21,7 @@ module.exports = {
         'primary-light-300': '#ffb1b3',
         'primary-light-400': '#FED7D9',
         'primary-light-500': '#FFEFF0',
-        'primary-light-600': '#fa4710',
-
+        accept: '#38ae60',
         pink: {
           DEFAULT: '#FE9699',
           lighter: '#FED7D9',
@@ -36,7 +35,7 @@ module.exports = {
           'darker-2': '#979797',
         },
         orange: {
-          DEFAULT: '#FCAD0E',
+          DEFAULT: '#FF8E25',
           lighter: '#FFF3E4',
           'light-1': '#FC950E',
           'light-2': '#FFF3E4',
