@@ -15,3 +15,4 @@ export * from './report';
 export * from './reportList';
 export * from './userDeviceList';
 export * from './userReportList';
+export * from './adminBorrow';
